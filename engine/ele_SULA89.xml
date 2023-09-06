@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<electric_engine name="electric">
+  <!-- This engine is used to drive the aft SULA89 and any other use the same engine.-->
+  <power unit="WATTS">  1139.0 </power>
+  <!--max airspeed gain Drag。
+  The value of Drag need to verify refer to the attitude when achieve the max airspeed.
+  The value of Drag need to be corrected refer to the efficiency of propulsion.
+  -->
+</electric_engine>
