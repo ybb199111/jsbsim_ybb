@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+   Author:   WANG ZIYI
+  <reference
+  author= "IUCRG(bit)"
+  source=  "Simulation data from Lijichu and Yebobo。"
+  date=   "20210522"
+  reference/>
+-->
+
+<propeller name="Fixed-Pitch 13-8-inch Two-Blade Propeller">
+  <ixx> 0.0047</ixx>
+  <diameter unit="IN"> 13.0 </diameter>
+  <numblades> 2 </numblades>
+  <minpitch> 13 </minpitch>
+  <maxpitch> 13 </maxpitch>
+<sense> 1 </sense>
+    <table name="C_THRUST" type="internal">
+    <tableData>
+      0	        0.08186
+      0.30303	0.07161
+      0.31348	0.06953
+      0.41322	0.05325
+      0.45455	0.04903
+      0.47022	0.04596
+      0.60606	0.02309
+      0.61983	0.01955
+      0.62696	0.01884
+      0.66116	0.0114
+    </tableData>
+  </table>
+  <table name="C_POWER" type = "internal">
+    <tableData>
+      0			        0.03485
+      0.30303			0.037
+      0.31348			0.03594
+      0.41322			0.03189
+      0.45455			0.03127
+      0.47022			0.02982
+      0.60606			0.02017
+      0.61983			0.01808
+      0.62696			0.01769
+      0.66116			0.0139
+    </tableData>
+  </table>
+</propeller>

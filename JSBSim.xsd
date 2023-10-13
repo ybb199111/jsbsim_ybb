@@ -24,12 +24,13 @@
       fdm_config element definition.
     </xs:documentation>
   </xs:annotation>
-  <xs:element name="fdm_config">
+
+  <xs:element name="fdm_config">  <!-- 定义fdm_config-->
     <xs:annotation>
       <xs:documentation> This is the root element for a JSBSim config file. </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:sequence>
+      <xs:sequence>    <!-- 被包围在指示器 <sequence>中。这意味着子元素必须以它们被声明的次序出现-->
         <xs:element ref="fileheader" />
         <!--The file creation information. -->
         <xs:element ref="metrics" />
@@ -90,7 +91,8 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  <!-- Global Types for this file -->
+  
+  <!-- Global Types for this file  通用的定义-->
   <xs:simpleType name="AreaType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="M2" />
@@ -149,8 +151,8 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:choice minOccurs="0" maxOccurs="unbounded">
-          <xs:element name="author" type="xs:string">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">  <!-- choice元素 的语法参考https://www.runoob.com/schema/el-choice.html-->
+          <xs:element name="author" type="xs:string">     <!--字符串数据类型 https://www.runoob.com/schema/schema-dtypes-string.html -->
             <xs:annotation>
               <xs:documentation>The name of the model author[s].</xs:documentation>
             </xs:annotation>
@@ -188,7 +190,7 @@
             <xs:documentation>This field stores the sensitivity classification, such as "classified", "secret", "proprietary", etc.</xs:documentation>
           </xs:annotation>
         </xs:element>
-        <xs:element name="filecreationdate" type="xs:date" minOccurs="0" maxOccurs="1">
+        <xs:element name="filecreationdate" type="xs:date" minOccurs="0" maxOccurs="1"> <!-- 日期和时间数据类型 https://www.runoob.com/schema/schema-dtypes-date.html-->
           <xs:annotation>
             <xs:documentation>The date that the model was initially created in the form yyyy-mm-dd</xs:documentation>
           </xs:annotation>
@@ -228,7 +230,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="reference">
+  <xs:element name="reference">   <!-- reference 信息的补充-->
     <xs:annotation>
       <xs:documentation>A reference consists of an author, a publication date, a reference ID (document ID, etc.),
     and of course a title. The title is the only item in a reference that is required.</xs:documentation>
@@ -254,15 +256,15 @@
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
-        <xs:element ref="wingarea" />
-        <xs:element ref="wingspan" />
-        <xs:element ref="wing_incidence" minOccurs="0" />
-        <xs:element ref="chord" />
-        <xs:element ref="htailarea" minOccurs="0" />
-        <xs:element ref="htailarm" minOccurs="0" />
-        <xs:element ref="vtailarea" minOccurs="0" />
-        <xs:element ref="vtailarm" minOccurs="0" />
-        <xs:element ref="location" minOccurs="1" maxOccurs="3" />
+        <xs:element ref="wingarea" />    <!--机翼面积 -->
+        <xs:element ref="wingspan" />    <!-- 机翼展长-->
+        <xs:element ref="wing_incidence" minOccurs="0" />   <!--机翼安装角 -->
+        <xs:element ref="chord" />       <!--机翼弦长-->
+        <xs:element ref="htailarea" minOccurs="0" />   <!--平尾面积 -->
+        <xs:element ref="htailarm" minOccurs="0" />    <!--平尾力臂 -->
+        <xs:element ref="vtailarea" minOccurs="0" />   <!--垂尾面积 -->
+        <xs:element ref="vtailarm" minOccurs="0" />    <!--垂尾力臂 -->
+        <xs:element ref="location" minOccurs="1" maxOccurs="3" />    <!--位置 -->
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -561,7 +563,7 @@
   <xs:element name="z" type="xs:double" />
 
   <!-- Buoyant forces section -->
-  <xs:element name="buoyant_forces">
+  <xs:element name="buoyant_forces">   <!-- 尚未定义-->
     
   </xs:element>
 
@@ -581,16 +583,14 @@
       <xs:element ref="channel" />
     </xs:choice>
       <xs:attribute name="name" use="optional" type="xs:string"/>
-      <xs:attribute name="file" use="optional" type="xs:string"/>
+      <xs:attribute name="file" use="optional" type="xs:string"/> <!-- 可以用单独的文件定义syetem-->
     </xs:complexType>
   </xs:element>
   
   <!-- AUTOPILOT SECTION -->
   <xs:element name="autopilot">
     <xs:annotation>
-      <xs:documentation> The autopilot section is not required for many uses, including for use within Flightgear.
-        The autopilot functions can be specified within the autopilot section, or a file name can be given where the 
-        autopilot is specified.</xs:documentation>
+      <xs:documentation> The autopilot section is not required for many uses, including for use within Flightgear. The autopilot functions can be specified within the autopilot section, or a file name can be given where the autopilot is specified.</xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:sequence>
@@ -598,20 +598,23 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sensor" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="channel" />
       </xs:sequence>
-      <xs:attribute name="file" type="xs:string" use="optional" />
+      <xs:attribute name="file" type="xs:string" use="optional" /> <!-- 可以用单独的文件定义AutoPolit-->
       <xs:attribute name="name" type="xs:string" use="optional" />
     </xs:complexType>
   </xs:element>
+
   <!-- FLIGHT CONTROL SECTION -->
+
   <!-- flight control types -->
   <xs:element name="clipto">
     <xs:annotation>
       <xs:documentation>This element specifies a minimum and/or a maximum limit that the associated component will be allowed
-      to have. The result will be clipped to the specified limits.</xs:documentation>
+      to have. The result will be clipped to the specified limits.
+    </xs:documentation>
     </xs:annotation>
     <xs:complexType>
       <xs:all>
-        <xs:element name="min" type="xs:double" />
+        <xs:element name="min" type="xs:double" />  <!--默认的单位是radians -->
         <xs:element name="max" type="xs:double" />
       </xs:all>
     </xs:complexType>
@@ -643,7 +646,9 @@
       <xs:attribute name="value" type="xs:string" />
     </xs:complexType>
   </xs:element>
+  
   <!-- End flight control types -->
+  
   <xs:element name="flight_control">
     <xs:complexType>
       <xs:sequence>
@@ -651,30 +656,30 @@
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="sensor" />
         <xs:element minOccurs="0" maxOccurs="unbounded" ref="channel" />
       </xs:sequence>
-      <xs:attribute name="file" type="xs:string" use="optional" />
+      <xs:attribute name="file" type="xs:string" use="optional" /> <!-- 可以用单独的文件定义flight_control-->
       <xs:attribute name="name" use="optional" type="xs:string" />
     </xs:complexType>
   </xs:element>
   
   <!-- Channel -->
-  
-  <xs:element name="channel">
+  <!-- Channel中的元素是syestem、autopilot、flight_control通用的-->
+    <xs:element name="channel">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element ref="actuator"/>
-        <xs:element ref="aerosurface_scale" />
-        <xs:element ref="integrator" />
+        <xs:element ref="actuator"/>          <!-- 作动器-->
+        <xs:element ref="aerosurface_scale" />   
+        <xs:element ref="integrator" />    <!-- Filter component：积分环节-->
         <xs:element ref="kinematic" />
-        <xs:element ref="lag_filter"/>
-        <xs:element ref="lead_lag_filter" />
+        <xs:element ref="lag_filter"/>     <!--Filter component：一阶低通滤波器-->
+        <xs:element ref="lead_lag_filter" /> <!-- Filter component：一阶 超前-滞后滤波器-->
         <xs:element ref="pid"/>
-        <xs:element ref="pure_gain" />
+        <xs:element ref="pure_gain" />    
         <xs:element ref="scheduled_gain"/>
-        <xs:element ref="second_order_filter" />
+        <xs:element ref="second_order_filter" />  <!--Filter component：二阶系统滤波器  -->
         <xs:element ref="sensor"/>
-        <xs:element ref="summer" />
+        <xs:element ref="summer" />               <!-- -->
         <xs:element ref="switch"/>
-        <xs:element ref="washout_filter" />
+        <xs:element ref="washout_filter" />      <!--Filter component：冲洗滤波器 -->
         <xs:element ref="deadband"/>
         <xs:element ref="fcs_function"/>
       </xs:choice>
@@ -683,7 +688,7 @@
   </xs:element>
   
   <!-- Lag filter -->
-  
+  <!-- 一阶低通滤波 https://www.bilibili.com/video/BV1Rb411M7wv?vd_source=e6f197f3b367b33949229789088529c6 !-->
   <xs:element name="lag_filter">
     <xs:complexType>
       <xs:all>
@@ -727,7 +732,7 @@
       <xs:all>
         <xs:element name="description" type="xs:string" minOccurs="0"/>
         <xs:element name="input" type="xs:string" minOccurs="1" maxOccurs="1" />
-        <xs:element ref="domain" minOccurs="0" maxOccurs="1" />
+        <xs:element ref="domain" minOccurs="0" maxOccurs="1" /> <!-- 默认是-1~+1-->
         <xs:element ref="range" minOccurs="1" maxOccurs="1" />
         <xs:element name="gain" minOccurs="0" maxOccurs="1">
           <xs:annotation>
@@ -914,7 +919,7 @@
   
   <!-- Sensor -->
   
-  <xs:element name="sensor">
+  <xs:element name="sensor">  <!--定义传感器 ，需要细看-->
     <xs:complexType>
       <xs:sequence>
         <xs:element name="description" type="xs:string" minOccurs="0"/>
@@ -1061,7 +1066,7 @@
     </xs:complexType>
   </xs:element>
 
-  <!-- AERODYNAMICS SECTION -->
+  <!-- AERODYNAMICS SECTION  气动力部分-->
   <xs:element name="aerodynamics">
     <xs:complexType>
       <xs:sequence>

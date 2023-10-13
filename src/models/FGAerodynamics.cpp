@@ -287,8 +287,7 @@ bool FGAerodynamics::Run(bool Holding)
 
   vMoments = vMomentsMRCBodyXYZ + vDXYZcg*vForces; // M = r X F
 
-  // Now add the "at CG" values to base forces - after the moments have been
-  // transferred.
+  // Now add the "at CG" values to base forces - after the moments have been transferred.
   vForces += vForcesAtCG;
 
   // Note that we still need to convert to wind axes here, because it is used in

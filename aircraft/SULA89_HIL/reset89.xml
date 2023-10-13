@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<initialize name="reset89">
+  <!--
+    This file sets up the aircraft to start off
+    from the runway in preparation for takeoff.
+  -->
+  <ubody unit="FT/SEC">    0.0  </ubody>
+  <vbody unit="FT/SEC">    0.0  </vbody>
+  <wbody unit="FT/SEC">    0.0  </wbody>
+  <longitude unit="DEG"> 116.7250595  </longitude>
+  <latitude unit="DEG">   32.5639787  </latitude>
+  <phi unit="DEG">         0.0  </phi>
+  <theta unit="DEG">       0.0  </theta>
+  <psi unit="DEG">         0.0  </psi>
+  <altitude unit="FT">     0.611 </altitude>
+  <elevation unit="FT">    0.0  </elevation>
+  <hwind> 0.0 </hwind>
+</initialize>

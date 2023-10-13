@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!--
+  File:     electric.xml
+  Author:   ZHAOXIZIYI
+-->
+<electric_engine name="electric">
+  <power unit="WATTS">  1000.0 </power>
+
+</electric_engine>

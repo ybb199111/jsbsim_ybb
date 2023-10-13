@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
 <fdm_config name="SULA89A"  version="2.0" release="BETA"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
     <fileheader>
-        <author>Monkeyking-bar</author>
-        <filecreationdate> 2023-07-06 </filecreationdate>
-        <version> $Id: SULA89.xml,v 1.0 2023/07/06  $ </version>
-        <organization> 北京理工大学 </organization>
-        <license licenseName="For simulation (bit)"  licenseURL=""/>
+        <author>ZhaoxiZiyi</author>
+        <filecreationdate> 2020-07-27 </filecreationdate>
+        <version> $Id: SULA89.xml,v 2.0 2022/03/21 16:02:49 $ </version>
+        <license
+          licenseName="For simulation (bit)"
+          licenseURL=""/>
         <note>
             This model was created using data from a aerodynamic simulation, It contains no proprietary or
             restricted data. Thus, this model is meant for educational only.
-            This simulation model is not endorsed by the manufacturer. This model is not to be sold.
-            根据王子一2023年7月7日提供的版本进行改进。         
+            This simulation model is not endorsed by the manufacturer. This model is not
+            to be sold.
         </note>
         <description>Models SULA89A.</description>
       <reference
@@ -21,18 +22,18 @@
         date=   "2020"/>
     </fileheader>
 
-     <metrics>                                             <!-- SULA89布局相关的参数。需要一张SULA89带起落架的图？待补充。-->
-        <wingarea unit="M2"> 0.2613</wingarea>             <!--前、后翼的机翼面积之和-->
-        <wingspan unit="M"> 1.363</wingspan>               <!--前、后翼的平均展长-->
-        <chord unit="M"> 0.192 </chord>                    <!--前、后翼的弦长之和-->
-        <htailarea unit="M2"> 0.1049 </htailarea>          <!--水平尾翼的面积，就是后翼的面积-->
-        <htailarm unit="M"> 0.449 </htailarm>              <!--水平尾翼的作用力臂？需再次确认。-->
-        <vtailarea unit="M2"> 0.00246 </vtailarea>         <!--垂直尾翼的面积，就是垂尾的面积-->   
-        <vtailarm unit="M"> 0.449 </vtailarm>              <!--垂直尾翼的作用力臂？需再次确认。-->
-         <location name="AERORP" unit="M">
+    <metrics>
+        <wingarea unit="M2"> 0.2613</wingarea>             <!--前后-->
+        <wingspan unit="M"> 1.363</wingspan>               <!--前后翼的平均展长-->
+        <chord unit="M"> 0.192 </chord>                     <!---->
+        <htailarea unit="M2"> 0.1049 </htailarea>            <!---->
+        <htailarm unit="M"> 0.449 </htailarm>
+        <vtailarea unit="M2"> 0.00246 </vtailarea>
+        <vtailarm unit="M"> 0.449 </vtailarm>               <!---->
+        <location name="AERORP" unit="M">
             <x> 0.420 </x>
             <y> 0.0 </y>
-            <z> 0.03 </z><!--TBfixed-->
+            <z> 0.03 </z>                                <!--TBfixed-->
         </location>
         <location name="VRP" unit="M">
             <x> 0.0 </x>
@@ -45,6 +46,7 @@
         <ixx unit="KG*M2"> 0.136 </ixx>     <!--需要由转台测试-->
         <iyy unit="KG*M2"> 0.666 </iyy>
         <izz unit="KG*M2"> 0.774 </izz>     <!--需要由转台测试-->
+<!--        <ixz unit="KG*M2"> -0.011 </ixz>    &lt;!&ndash;需要由转台测试&ndash;&gt;-->
         <emptywt unit="KG"> 8.7 </emptywt>
         <location name="CG" unit="M">       <!--坐标原点在机头-->
             <x> 0.406</x>
@@ -108,8 +110,8 @@
 
     </ground_reactions>    <!--TBD-->
 
-    <propulsion>        
-        <engine file="Rocket-89">  <!--火箭助推 -->
+    <propulsion>        <!---->
+        <engine file="Rocket-89">
             <location unit="M">
                 <x> 0.92 </x>
                 <y> 0 </y>
@@ -174,7 +176,7 @@
 
     <flight_control name="SULA89">
         <channel name="Pitch">
-            <summer name="fcs/pitch-trim-sum">
+            <summer name="fcs/pitch-trim-sum"> <!-- -->
                 <input>fcs/elevator-cmd-norm</input>
                 <clipto>                                                      <!---->
                     <min>-1</min>
@@ -184,7 +186,7 @@
 
             <!--
             Map the -1 to +1 input into the range specified below, then
-            multiply by 0.01745 to convert to radians
+            multiply by 0.01745 to convert to radians。角度转弧度。
             -->
             <aerosurface_scale name="fcs/elevator-control">
                 <input>fcs/pitch-trim-sum</input>
@@ -197,7 +199,7 @@
 
             <actuator name="fcs/elevator-actuator">
                 <input> fcs/elevator-control </input>
-                <lag> 60 </lag>                                               <!--这个还没有改-->
+                <lag> 60 </lag>                                      <!--这个还没有改-->
                 <bias> 0.002 </bias>
                 <rate_limit> 5.82 </rate_limit>
 <!--              <deadband_width> 0.002 </deadband_width>-->               <!--2us。(CLS0512W)-->

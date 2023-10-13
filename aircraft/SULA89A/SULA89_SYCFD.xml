@@ -12,9 +12,10 @@
             This model was created using data from a aerodynamic simulation, It contains no proprietary or
             restricted data. Thus, this model is meant for educational only.
             This simulation model is not endorsed by the manufacturer. This model is not to be sold.
-            根据王子一2023年7月7日提供的版本进行改进。         
+            原有版本“SULA89A-JSBSim.xml ”是根据《Sula110-（Sula80X1）气动分析计算总表》建立。
+            该版本是基于《YF无人机气动计算数据报告.doc》建立。       
         </note>
-        <description>Models SULA89A.</description>
+        <description>Models SULA89A .</description>
       <reference
         author= "IUCRG(bit)"
         title=  "Information Manual Model sula89"
@@ -32,19 +33,20 @@
          <location name="AERORP" unit="M">
             <x> 0.420 </x>
             <y> 0.0 </y>
-            <z> 0.03 </z><!--TBfixed-->
+            <z> 0.03 </z><!--沿用王子一的结果，参考《》-->
         </location>
         <location name="VRP" unit="M">
             <x> 0.0 </x>
             <y> 0.0 </y>
-            <z> 0.0 </z><!--TBfixed-->
+            <z> 0.0 </z><!--沿用王子一的结果-->
         </location>
     </metrics>
 
     <mass_balance>
-        <ixx unit="KG*M2"> 0.136 </ixx>     <!--需要由转台测试-->
+        <ixx unit="KG*M2"> 0.136 </ixx>     <!--需要由转台测试，此处沿用王子一结果-->
         <iyy unit="KG*M2"> 0.666 </iyy>
-        <izz unit="KG*M2"> 0.774 </izz>     <!--需要由转台测试-->
+        <izz unit="KG*M2"> 0.774 </izz>     
+        <ixz unit="KG*M2"> -0.011 </ixz> 
         <emptywt unit="KG"> 8.7 </emptywt>
         <location name="CG" unit="M">       <!--坐标原点在机头-->
             <x> 0.406</x>
