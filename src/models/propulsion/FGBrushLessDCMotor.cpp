@@ -35,6 +35,7 @@ Rm internal coil resistance  [Ohms]
 I0 no load current           [Amperes]
 
 REFERENCE:
+《First-Order DC Electric Motor Model》
 http://web.mit.edu/drela/Public/web/qprop/motor1_theory.pdf
 
 HISTORY
