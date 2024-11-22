@@ -69,6 +69,7 @@ class FGInertial;
 class FGInput;
 class FGPropulsion;
 class FGMassBalance;
+class FGLogger;
 
 class TrimFailureException : public BaseException {
   public:
@@ -479,7 +480,7 @@ public:
    * You must trim first to get an accurate state-space model
    */
   void DoLinearization(int);
-  
+
   /// Disables data logging to all outputs.
   void DisableOutput(void) { Output->Disable(); }
   /// Enables data logging to all outputs.
@@ -507,6 +508,9 @@ public:
   void ResetToInitialConditions(int mode);
   /// Sets the debug level.
   void SetDebugLevel(int level) {debug_lvl = level;}
+
+  void SetLogger(std::shared_ptr<FGLogger> logger) {Log = logger;}
+  std::shared_ptr<FGLogger> GetLogger(void) const {return Log;}
 
   struct PropertyCatalogStructure {
     /// Name of the property.
@@ -626,10 +630,14 @@ public:
   auto GetRandomGenerator(void) const { return RandomGenerator; }
 
 private:
+  // Declare Log first so that it's destroyed last: the logger may be used by
+  // some FGFDMExec members to log data during their destruction.
+  std::shared_ptr<FGLogger> Log;
+
   unsigned int Frame;
   unsigned int IdFDM;
   int disperse;
-  unsigned short Terminate;
+  bool Terminate;
   double dT;
   double saved_dT;
   double sim_time;

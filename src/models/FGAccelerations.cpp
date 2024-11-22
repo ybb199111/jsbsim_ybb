@@ -55,6 +55,7 @@ INCLUDES
 
 #include "FGAccelerations.h"
 #include "FGFDMExec.h"
+#include "input_output/FGLog.h"
 
 using namespace std;
 
@@ -155,11 +156,11 @@ void FGAccelerations::CalculatePQRdot(void)
     // The rotational acceleration in ECI is calculated so that the rotational
     // acceleration is zero in the body frame.
     vPQRdot.InitMatrix();
-    vPQRidot = in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
+    vPQRidot = vPQRdot - in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
   }
   else {
     vPQRidot = in.Jinv * (in.Moment - in.vPQRi * (in.J * in.vPQRi));
-    vPQRdot = vPQRidot - in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
+    vPQRdot = vPQRidot + in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
   }
 }
 
@@ -211,8 +212,8 @@ void FGAccelerations::SetHoldDown(bool hd)
   if (hd) {
     vUVWidot = in.vOmegaPlanet * (in.vOmegaPlanet * in.vInertialPosition);
     vUVWdot.InitMatrix();
-    vPQRidot = in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
     vPQRdot.InitMatrix();
+    vPQRidot = vPQRdot - in.vPQRi * (in.Ti2b * in.vOmegaPlanet);
   }
 }
 
@@ -411,8 +412,9 @@ void FGAccelerations::Debug(int from)
     }
   }
   if (debug_lvl & 2 ) { // Instantiation/Destruction notification
-    if (from == 0) cout << "Instantiated: FGAccelerations" << endl;
-    if (from == 1) cout << "Destroyed:    FGAccelerations" << endl;
+    FGLogging log(FDMExec->GetLogger(), LogLevel::DEBUG);
+    if (from == 0) log << "Instantiated: FGAccelerations\n";
+    if (from == 1) log << "Destroyed:    FGAccelerations\n";
   }
   if (debug_lvl & 4 ) { // Run() method entry print for FGModel-derived objects
   }
