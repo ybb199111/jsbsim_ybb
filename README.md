@@ -11,7 +11,7 @@
 
 JSBSim is a multi-platform, general purpose object-oriented Flight Dynamics Model (FDM) written in C++. The FDM is essentially the physics & math model that defines the movement of an aircraft, rocket, etc., under the forces and moments applied to it using the various control mechanisms and from the forces of nature. JSBSim can be run in a standalone batch mode flight simulator (no graphical displays a.k.a. console mode) for testing and study, or integrated with the [Unreal engine](https://www.unrealengine.com), [FlightGear](https://www.flightgear.org/) and many other simulation environments.
 
-Features include:
+Features include:呼呼
 
 * Nonlinear 6 DoF (Degree of Freedom)
 * Fully configurable flight control system, aerodynamics, propulsion, landing gear arrangement, etc. through XML-based text file format.
@@ -47,7 +47,7 @@ JSBSim is used in a range of projects among which:
 
 JSBSim is also used in academic and industry research ([more than 700 citations referenced by Google Scholar](https://scholar.google.com/scholar?&q=jsbsim) as of May 2023).
 
-In 2023 JSBSim has been featured in the article ["A deep reinforcement learning control approach for high-performance aircraft"](https://link.springer.com/article/10.1007/s11071-023-08725-y) on _Nonlinear Dynamics_, an International Journal of Nonlinear Dynamics and Chaos in Engineering Systems by Springer. The open access article is available as a PDF here [https://link.springer.com/content/pdf/10.1007/s11071-023-08725-y.pdf](https://link.springer.com/content/pdf/10.1007/s11071-023-08725-y.pdf). The work demonstrates an application of Deep Reinforcement Learning (DRL) to flight control and guidance, leveraging the JSBSim interface to MATLAB/Simulink.
+In 2023 JSBSim has been featured in the article [&#34;A deep reinforcement learning control approach for high-performance aircraft&#34;](https://link.springer.com/article/10.1007/s11071-023-08725-y) on _Nonlinear Dynamics_, an International Journal of Nonlinear Dynamics and Chaos in Engineering Systems by Springer. The open access article is available as a PDF here [https://link.springer.com/content/pdf/10.1007/s11071-023-08725-y.pdf](https://link.springer.com/content/pdf/10.1007/s11071-023-08725-y.pdf). The work demonstrates an application of Deep Reinforcement Learning (DRL) to flight control and guidance, leveraging the JSBSim interface to MATLAB/Simulink.
 
 # User Guide
 
@@ -138,7 +138,7 @@ More options are available if you run:
 
 ## User documentation
 
-A first place to look at for JSBSim documentation resources is <https://jsbsim.sourceforge.net/documentation.html>. This link points to the official [JSBSim Reference Manual](https://jsbsim.sourceforge.net/JSBSimReferenceManual.pdf), a PDF which is the best source of information for users and developers.
+A first place to look at for JSBSim documentation resources is [https://jsbsim.sourceforge.net/documentation.html](https://jsbsim.sourceforge.net/documentation.html). This link points to the official [JSBSim Reference Manual](https://jsbsim.sourceforge.net/JSBSimReferenceManual.pdf), a PDF which is the best source of information for users and developers.
 
 However, due to the nature of the development of the project (JSBSim sources are updated often, sometimes even daily), several new features that are available in the software are not yet documented in the reference manual. Starting from March 2018 a new effort is underway to deliver an up-to-date documentation web site. You can browse the new *JSBSim Online Reference Manual* by going to: [https://jsbsim-team.github.io/jsbsim-reference-manual](https://jsbsim-team.github.io/jsbsim-reference-manual). The online manual is under construction and as a first milestone it will incorporate all the non-outdated material contained in the original PDF Reference Manual. The online manual web site is based on the GitHub Pages technology and its sources are available [here](https://github.com/JSBSim-Team/jsbsim-reference-manual). Eventually, the PDF Reference Manual will be superseded by the online manual, which is designed to be updated collaboratively as well as in efficient and timely fashion.
 
@@ -159,7 +159,7 @@ int main(int argc, char **argv)
   bool result = true;
   while (result) result = FDMExec.Run();
 }
- ```
+```
 
 The API is described in more details in the [C++ API documentation](doc/DevelopersDocs.md#c-api-documentation)
 
@@ -196,9 +196,9 @@ If you would like to contribute source code changes please take a look at the [C
 
 # Contact
 
-For more information about JSBSim, you can contact the development team on [GitHub discussion](https://github.com/JSBSim-Team/jsbsim/discussions) or submit tickets on <https://github.com/JSBSim-Team/jsbsim/issues>
+For more information about JSBSim, you can contact the development team on [GitHub discussion](https://github.com/JSBSim-Team/jsbsim/discussions) or submit tickets on [https://github.com/JSBSim-Team/jsbsim/issues](https://github.com/JSBSim-Team/jsbsim/issues)
 
-We are also on Facebook: <https://www.facebook.com/jsbsim/>
+We are also on Facebook: [https://www.facebook.com/jsbsim/](https://www.facebook.com/jsbsim/)
 
 # Legal Notice
 
@@ -212,4 +212,4 @@ The Python module of JSBSim is open source and is licensed under the [LGPL 2.1 l
 
 No proprietary code is included. All code included within the JSBSim project has been developed on a volunteer basis using publicly available information, and is often directly linked to a particular textbook, for educational reference. In some cases, code of a generic nature has been donated back to the project.
 
-Likewise, the aircraft models included in this project and distribution do not include any proprietary, sensitive, or classified data. All data is derived from textbooks (such as Stevens and Lewis "Aircraft Control and Simulation" and Sutton's "Rocket Propulsion Elements"), freely available technical reports (see: <https://ntrs.nasa.gov> and <https://www.aiaa.org>), or other public data (such as the FAA web site). Aircraft models included in the JSBSim distribution and with names corresponding to existing commercial or military aircraft are approximations crafted using publicly available information, and are for educational or entertainment uses only.
+Likewise, the aircraft models included in this project and distribution do not include any proprietary, sensitive, or classified data. All data is derived from textbooks (such as Stevens and Lewis "Aircraft Control and Simulation" and Sutton's "Rocket Propulsion Elements"), freely available technical reports (see: [https://ntrs.nasa.gov](https://ntrs.nasa.gov) and [https://www.aiaa.org](https://www.aiaa.org)), or other public data (such as the FAA web site). Aircraft models included in the JSBSim distribution and with names corresponding to existing commercial or military aircraft are approximations crafted using publicly available information, and are for educational or entertainment uses only.
